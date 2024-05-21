@@ -23,29 +23,29 @@ public class PracticeWithDatabase {
         DBContext dbContext = new DBContext();
         Connection connection = dbContext.getConnection();
 
-        // Display
-        //show(connection);
+        //Display
+        show(connection);
         // Insert
-        /*String sql = "insert Human values (7, 'Kais01','2020-07-08','False',1)";
+        /*String sql = "insert Human values (8, 'Kais012','2020-07-08','False',1)";
         try {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
         } catch (SQLException ex) {
             Logger.getLogger(PracticeWithDatabase.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         
         // Delete
-        sql = "Delete From Human where humanname = 'Dang01'";
+        String sql = "Delete From Human where humanname = 'Kais012'";
         try {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
         } catch (SQLException ex) {
             Logger.getLogger(PracticeWithDatabase.class.getName()).log(Level.SEVERE, null, ex);
 
-        }*/
-        
+        }
+
         // Update
-        String sql = "Update Human Set humanname = 'Dang01', humandob = '2004-05-13', humangender = 'False', typeid = 1 Where humanid = 6";
+        sql = "Update Human Set humanname = 'Kais012', humandob = '2004-05-13', humangender = 'False', typeid = 1 Where humanid = 6";
         try {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
@@ -67,7 +67,11 @@ public class PracticeWithDatabase {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                System.out.println("\"Human{\" + \"humanID=\" + humanID + \", humanName=\" + humanName + \", humanDob=\" + humanDob + \", humanGender=\" + humanGender + \", typeID=\" + typeID + '}'");
+                System.out.print(" Human id: " + rs.getString("humanid"));
+                System.out.print(" Human name: " + rs.getString("humanname"));
+                System.out.print(" Human dob: " + rs.getDate("humandob"));
+                System.out.print(" Human gender: " + rs.getBoolean("humangender"));
+                System.out.println(" Human type: " + rs.getString("typeid"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PracticeWithDatabase.class.getName()).log(Level.SEVERE, null, ex);
