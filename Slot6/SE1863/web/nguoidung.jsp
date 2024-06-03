@@ -17,6 +17,12 @@
                     <input type="text" name="username" value="" />
                     <input type="submit" value="search" />
                 </form>
+                <tr>
+                    <td>ten</td>
+                    <td>mk</td>
+                    <td>masv</td>
+                    <td>lop</td>
+                </tr>   
                 <%int i = 1; %>
                 <c:forEach items="${requestScope.ndata}" var="n">
                     <tr>
